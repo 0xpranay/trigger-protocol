@@ -1,0 +1,67 @@
+{
+  "name": "y",
+  "version": "0.0.1",
+  "description": "Trigger Protocol",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "build": "npx hardhat compile",
+    "deploy": "npx hardhat deploy",
+    "test": "forge test",
+    "test:integration": "npm run build && npm run typegen && npx hardhat test",
+    "clean": "forge clean",
+    "snapshot:new": "forge snapshot",
+    "snapshot:compare": "forge snapshot --diff .gas-snapshot",
+    "lint": "solhint src/**/*.sol test/**/*.sol; prettier --list-different src/**/*.sol test/**/*.sol deploy/**/*.ts",
+    "lint:fix": "solhint --fix src/**/*.sol test/**/*.sol; prettier --write src/**/*.sol test/**/*.sol deploy/**/*.ts",
+    "preinstall": "forge install",
+    "size": "npx hardhat size-contracts",
+    "typegen": "npx typechain --target=ethers-v5 --out-dir types 'artifacts/src/**/*([A-Za-z1-9]).json'"
+  },
+  "pre-commit": [
+    "lint:fix"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.5",
+    "@nomiclabs/hardhat-etherscan": "^3.0.3",
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
+    "@types/chai": "^4.3.1",
+    "@types/ethereumjs-util": "^6.1.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^17.0.32",
+    "chai": "^4.3.6",
+    "dotenv": "^16.0.0",
+    "ethereum-waffle": "^3.4.4",
+    "ethers": "^5.6.2",
+    "hardhat": "^2.9.3",
+    "hardhat-deploy": "^0.11.4",
+    "hardhat-gas-reporter": "^1.0.8",
+    "hardhat-typechain": "^0.3.5",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.5.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.19",
+    "solhint": "^3.3.7",
+    "solidity-coverage": "^0.7.20",
+    "solidity-docgen": "^0.6.0-beta.8",
+    "ts-node": "^10.7.0",
+    "typechain": "^8.0.0",
+    "typechain-target-ethers": "^1.0.4",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "@aave/protocol-v2": "^1.0.1",
+    "@opengsn/contracts": "^3.0.0-beta.1",
+    "@openzeppelin/contracts": "^4.7.2",
+    "@openzeppelin/contracts-upgradeable": "^4.7.2",
+    "@rari-capital/solmate": "file:lib/solmate",
+    "@typechain/ethers-v5": "^10.0.0",
+    "@uniswap/v3-core": "uniswap/v3-core",
+    "hardhat-contract-sizer": "^2.5.1",
+    "hardhat-tracer": "^1.1.0-rc.3"
+  }
+}

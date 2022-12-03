@@ -1,0 +1,9 @@
+cache/
+out/
+node_modules/
+artifacts/
+.secret
+.env
+deployments/ganache/
+deployments/localhost/
+types/
